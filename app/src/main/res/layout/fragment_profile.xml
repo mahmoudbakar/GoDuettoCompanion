@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registerationsys.SignUpActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/mainLay"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/imgProfile"
+                android:src="@drawable/addphoto"
+                app:civ_border_width="3dp"
+                app:civ_border_color="@color/colorAccent"/>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <RelativeLayout
+                    android:background="@color/blackTrance"
+                    android:layout_marginEnd="2dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/ic_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/edName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/blackTrance"
+                    android:hint="Name"
+                    android:inputType="textPersonName"
+                    android:paddingStart="5dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <RelativeLayout
+                    android:background="@color/blackTrance"
+                    android:layout_marginEnd="2dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/ic_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+                <EditText
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:id="@+id/edUserName"
+                    android:textColorHint="@color/white"
+                    android:hint="Username"
+                    android:paddingStart="5dp"
+                    android:background="@color/blackTrance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <RelativeLayout
+                    android:background="@color/blackTrance"
+                    android:layout_marginEnd="2dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/ic_home"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+                <android.support.v7.widget.AppCompatSpinner
+                    android:textColor="@color/white"
+                    android:id="@+id/spCountries"
+                    android:background="@color/blackTrance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <RelativeLayout
+                    android:background="@color/blackTrance"
+                    android:layout_marginEnd="2dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/ic_mail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+                <EditText
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    android:id="@+id/edEmail"
+                    android:textColorHint="@color/white"
+                    android:hint="Email"
+                    android:paddingStart="5dp"
+                    android:background="@color/blackTrance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <RelativeLayout
+                    android:background="@color/blackTrance"
+                    android:layout_marginEnd="2dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/ic_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+                <EditText
+                    android:clickable="false"
+                    android:inputType="phone"
+                    android:textColor="@color/white"
+                    android:id="@+id/edPhoneCode1"
+                    android:textColorHint="@color/white"
+                    android:hint="Code"
+                    android:paddingStart="5dp"
+                    android:background="@color/blackTrance"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent" />
+                <EditText
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
+                    android:inputType="phone"
+                    android:textColor="@color/white"
+                    android:id="@+id/edPhone1"
+                    android:textColorHint="@color/white"
+                    android:hint="Phone 1"
+                    android:paddingStart="5dp"
+                    android:background="@color/blackTrance"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <RelativeLayout
+                    android:background="@color/blackTrance"
+                    android:layout_marginEnd="2dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/ic_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+                <EditText
+                    android:clickable="false"
+                    android:inputType="phone"
+                    android:textColor="@color/white"
+                    android:id="@+id/edPhoneCode2"
+                    android:textColorHint="@color/white"
+                    android:hint="Code"
+                    android:paddingStart="5dp"
+                    android:background="@color/blackTrance"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent" />
+                <EditText
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
+                    android:inputType="phone"
+                    android:textColor="@color/white"
+                    android:id="@+id/edPhone2"
+                    android:textColorHint="@color/white"
+                    android:hint="Phone 2"
+                    android:paddingStart="5dp"
+                    android:background="@color/blackTrance"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <RelativeLayout
+                    android:background="@color/blackTrance"
+                    android:layout_marginEnd="2dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/ic_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+                <RadioGroup
+                    android:id="@+id/rdGroup"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <RadioButton
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:textColor="@color/white"
+                        android:id="@+id/rdMale"
+                        android:text="Male"
+                        android:paddingStart="5dp"
+                        android:background="@color/blackTrance"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+                    <RadioButton
+                        android:textColor="@color/white"
+                        android:text="Female"
+                        android:id="@+id/rdFemale"
+                        android:textColorHint="@color/white"
+                        android:paddingStart="5dp"
+                        android:layout_marginStart="3dp"
+                        android:background="@color/blackTrance"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <RelativeLayout
+                    android:background="@color/blackTrance"
+                    android:layout_marginEnd="2dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/ic_birth"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+                <TextView
+                    android:inputType="phone"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:textSize="18dp"
+                    android:id="@+id/txtDate"
+                    android:textColorHint="@color/white"
+                    android:hint="BirthDate"
+                    android:paddingStart="5dp"
+                    android:background="@color/blackTrance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <RelativeLayout
+                    android:background="@color/blackTrance"
+                    android:layout_marginEnd="2dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/ic_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+                <EditText
+                    android:inputType="textPassword"
+                    android:textColor="@color/white"
+                    android:id="@+id/edPassword"
+                    android:textColorHint="@color/white"
+                    android:paddingStart="5dp"
+                    android:hint="Password"
+                    android:background="@color/blackTrance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <RelativeLayout
+                    android:background="@color/blackTrance"
+                    android:layout_marginEnd="2dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/ic_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+                <EditText
+                    android:inputType="textPassword"
+                    android:textColor="@color/white"
+                    android:id="@+id/edPassword2"
+                    android:textColorHint="@color/white"
+                    android:paddingStart="5dp"
+                    android:hint="Retype Password"
+                    android:background="@color/blackTrance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <TextView
+                android:layout_marginBottom="20dp"
+                android:id="@+id/txtButtonCreateUser"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:text="Save Profile"
+                android:layout_marginTop="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/colorAccent"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

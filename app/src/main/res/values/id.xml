@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="fab_start_trip" type="id" />
+    <item name="fab_end_trip" type="id" />
+    <item name="fab_terminate_trip" type="id" />
+    <item name="fab_cancel_trip" type="id" />
+    <item name="fab_delete_trip" type="id" />
+</resources>

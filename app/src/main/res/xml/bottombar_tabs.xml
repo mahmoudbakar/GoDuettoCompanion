@@ -1,0 +1,14 @@
+<tabs>
+    <tab
+        icon="@drawable/ic_home"
+        id="@+id/tab_home"
+        title="Home"/>
+    <tab
+        icon="@drawable/ic_schedule"
+        id="@+id/tab_schedule"
+        title="Schedule"/>
+    <tab
+        icon="@drawable/ic_profile"
+        id="@+id/tab_profile"
+        title="Profile"/>
+</tabs>

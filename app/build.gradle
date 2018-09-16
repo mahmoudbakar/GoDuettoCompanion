@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId "com.undecode.goduettocompanion"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    //Bottom Bar
+    implementation 'com.roughike:bottom-bar:2.3.1'
+    //Internet
+    implementation 'com.android.volley:volley:1.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.3.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'org.glassfish:javax.annotation:10.0-b28'
+    //noinspection DuplicatePlatformClasses
+    implementation 'org.apache.httpcomponents:httpclient:4.3.6'
+    implementation('org.apache.httpcomponents:httpmime:4.3.6') {
+        exclude module: 'httpclient'
+    }
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
+    implementation 'joda-time:joda-time:2.9.7'
+    //Image
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.github.jrvansuita:PickImage:2.2.3'
+    //date picker
+    implementation 'com.github.drawers:SpinnerDatePicker:1.0.6'
+    implementation 'com.google.android.gms:play-services-maps:11.6.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.google.android.gms:play-services:12.0.1'
+    implementation 'com.applandeo:material-calendar-view:1.4.0'
+    //Rate Bar
+    implementation 'com.github.ome450901:SimpleRatingBar:1.4.2'
+    implementation "com.leinardi.android:speed-dial:1.0.2"
+}
