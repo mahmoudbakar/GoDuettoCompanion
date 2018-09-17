@@ -27,6 +27,11 @@ public class MyDate
         return dt.parse(date);
     }
 
+    public Long getCurrentTimeMillis()
+    {
+        return Calendar.getInstance().getTimeInMillis();
+    }
+
     public String getCurrentStringDateTime()
     {
         Date currentTime = Calendar.getInstance().getTime();

@@ -4,7 +4,13 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +24,8 @@ import com.leinardi.android.speeddial.SpeedDialActionItem;
 import com.leinardi.android.speeddial.SpeedDialView;
 import com.undecode.goduettocompanion.bakar.network.API;
 import com.undecode.goduettocompanion.bakar.network.OnDataReady;
+import com.undecode.goduettocompanion.bakar.utils.date.DateFormatter;
+import com.undecode.goduettocompanion.bakar.utils.date.MyDate;
 import com.undecode.goduettocompanion.models.Bookings;
 import com.undecode.goduettocompanion.models.CompanionProfile;
 import com.willy.ratingbar.BaseRatingBar;
@@ -53,12 +61,14 @@ public class BookingDetailsActivity extends AppCompatActivity implements OnMapRe
     private CompanionProfile companionProfile;
     String tripID = "";
     SpeedDialActionItem terminateButton, endButton, startButton, cancelButton;
+    MyDate myDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_details);
+        myDate = new MyDate();
         tripID = getIntent().getStringExtra("id");
         terminateButton = new SpeedDialActionItem.Builder(R.id.fab_terminate_trip, R.drawable.ic_close)
                 .setFabBackgroundColor(getResources().getColor(R.color.red))
@@ -84,7 +94,8 @@ public class BookingDetailsActivity extends AppCompatActivity implements OnMapRe
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         API.getInstance().getBookDetails(this, tripID,
-                new OnDataReady() {
+                new OnDataReady()
+                {
                     @Override
                     public void onArrayReady(List list)
                     {
@@ -114,7 +125,11 @@ public class BookingDetailsActivity extends AppCompatActivity implements OnMapRe
                                             break;
                                         case 1:
                                             speedDialView.addActionItem(terminateButton);
-                                            speedDialView.addActionItem(endButton);
+                                            if (myDate.getCurrentTimeMillis() >= DateFormatter.getLongDateTime(book.getEndTime()).getMillis())
+                                            {
+                                                Toast.makeText(BookingDetailsActivity.this, "Trip time ended", Toast.LENGTH_SHORT).show();
+                                                speedDialView.addActionItem(endButton);
+                                            }
                                             break;
                                     }
                                     break;
@@ -203,16 +218,32 @@ public class BookingDetailsActivity extends AppCompatActivity implements OnMapRe
                         .setNegativeButton(android.R.string.no, null).show();
                 break;
             case R.id.fab_terminate_trip:
+                //TextView tx;
+                String[] s = { "India ", "Arica", "India ", "Arica", "India ", "Arica",
+                        "India ", "Arica", "India ", "Arica" };
+                final ArrayAdapter<String> adp = new ArrayAdapter<String>(BookingDetailsActivity.this,
+                        android.R.layout.simple_spinner_item, s);
+
+                //tx = (TextView)findViewById(R.id.txt1);
+                //edComplain.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 100));
+
+                LayoutInflater inflater = getLayoutInflater();
+                View view = inflater.inflate(R.layout.terminate_dialog, null);
+                final Spinner sp = view.findViewById(R.id.spTerminate);
+                sp.setAdapter(adp);
+                final EditText edComplain = view.findViewById(R.id.edTerminate);
+
                 new AlertDialog.Builder(this)
                         .setTitle("Terminate Trip")
                         .setMessage("Do you really want to Terminate this trip?")
                         .setIcon(R.drawable.ic_warning)
+                        .setView(view)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener()
                         {
                             @Override
                             public void onClick(DialogInterface dialog, int which)
                             {
-                                API.getInstance().terminateCompanion(BookingDetailsActivity.this, tripID, 1, "Terminating this trip..");
+                                API.getInstance().terminateCompanion(BookingDetailsActivity.this, tripID, 1, edComplain.getText().toString());
                             }
                         })
                         .setNegativeButton(android.R.string.no, null).show();
